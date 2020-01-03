@@ -1,0 +1,37 @@
+This is a Basic REST API with Authentication with mail sending.
+
+#Routes
+Register
+Login
+CurrentUser
+
+#TECH Stack
+
+Node
+Express
+MongoDB
+
+#Techniques
+
+Joi Validation
+Password Hashing
+Email sending with nodemailer SMTP
+
+
+#USAGE
+Pull from GitHub
+run npm install from root directory
+create .env file with the following keys 
+
+API_PORT=3003
+SECRET_KEY=
+SEND_GRID_KEY=
+APP_URL=http://localhost:3003/api
+DB_URI=mongodb://localhost:27017/basic-auth-db
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USERNAME=
+SMTP_PASSWORD=
+
+provide the values.
+
