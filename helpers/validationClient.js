@@ -18,7 +18,7 @@ exports.registrationValidation =  (data) => {
         repeat_password: Joi.ref('password'),
     
         email: Joi.string()
-            .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+            .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required()
     });
 
     return schema.validate(data);
@@ -28,7 +28,7 @@ exports.loginValidation =  (data) => {
 
     const schema = Joi.object({
         email: Joi.string()
-            .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+            .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
     
         password: Joi.string()
         .alphanum()

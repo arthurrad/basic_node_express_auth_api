@@ -1,4 +1,4 @@
-This is a Basic REST API with Authentication with mail sending.
+This is a Basic REST API with Authentication with mail sending for account verification.
 
 #Routes
 Register
@@ -15,7 +15,8 @@ MongoDB
 
 Joi Validation
 Password Hashing
-Email sending with nodemailer SMTP
+Email sending with nodemailer SMTP for user email verification.
+JWT Authentication & Authorization
 
 
 #USAGE
@@ -27,11 +28,37 @@ API_PORT=3003
 SECRET_KEY=
 SEND_GRID_KEY=
 APP_URL=http://localhost:3003/api
-DB_URI=mongodb://localhost:27017/basic-auth-db
+DB_URI="Your mongodb connection string"
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
 SMTP_USERNAME=
 SMTP_PASSWORD=
 
 provide the values.
+
+#Test Routes
+
+APP_URL/user/register
+
+    email -- valid email address .com & .net domains only, required
+    username -- alphanumeric, minimun of 4 chars maximum of 30 chars, required
+    password -- alphanumeric, minimum of 6 chars, required
+    repeat_password
+
+Account Verification - make a GET request to the link contained in the email received upon successful registration.
+
+
+APP_URL/user/login only if account has been verified - GETS back a token and sets header "auth-token"
+
+    email
+    password
+
+APP_URL/user/current
+
+    Gets the current USER. Make a GET request and set Header "auth-token" with value of token gotten from login.
+
+
+#TO-DO
+Add Photo Upload using Multer
+Add Profile Info for User
 
